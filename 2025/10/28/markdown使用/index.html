@@ -1,0 +1,314 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>markdown使用 | 栗子西柚wa</title><meta name="author" content="栗子西柚wa"><meta name="copyright" content="栗子西柚wa"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="markdown的使用前言ok啊也是开始正式开始写我的第一篇blog了。有一说一搭一个hexo博客还真是不容易，哪哪都有可能报错，投到github上再薅下来更是困难重重。 框架是搭好了，但是问题来了，markdown语法都不会我写鸡毛啊? 我不会写markdown啊。 所以就屁颠屁颠来学呗。 然后我就突发奇想 为什么不在学markdown的时候就跟着写教程呢？ 于是就开始写了。 ps:只学了基于T">
+<meta property="og:type" content="article">
+<meta property="og:title" content="markdown使用">
+<meta property="og:url" content="https://lazysilver.github.io/2025/10/28/markdown%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="栗子西柚wa">
+<meta property="og:description" content="markdown的使用前言ok啊也是开始正式开始写我的第一篇blog了。有一说一搭一个hexo博客还真是不容易，哪哪都有可能报错，投到github上再薅下来更是困难重重。 框架是搭好了，但是问题来了，markdown语法都不会我写鸡毛啊? 我不会写markdown啊。 所以就屁颠屁颠来学呗。 然后我就突发奇想 为什么不在学markdown的时候就跟着写教程呢？ 于是就开始写了。 ps:只学了基于T">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lazysilver.github.io/img/(450).png">
+<meta property="article:published_time" content="2025-10-28T12:23:26.000Z">
+<meta property="article:modified_time" content="2025-10-28T14:19:28.706Z">
+<meta property="article:author" content="栗子西柚wa">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lazysilver.github.io/img/(450).png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "markdown使用",
+  "url": "https://lazysilver.github.io/2025/10/28/markdown%E4%BD%BF%E7%94%A8/",
+  "image": "https://lazysilver.github.io/img/(450).png",
+  "datePublished": "2025-10-28T12:23:26.000Z",
+  "dateModified": "2025-10-28T14:19:28.706Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "栗子西柚wa",
+      "url": "https://lazysilver.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lazysilver.github.io/2025/10/28/markdown%E4%BD%BF%E7%94%A8/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'markdown使用',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="web_bg" style="background-image: url(/img/back.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://img0.baidu.com/it/u=865383481,2785686272&amp;fm=253&amp;app=138&amp;f=JPEG?w=800&amp;h=800" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时光档案</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/(450).png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://img0.baidu.com/it/u=865383481,2785686272&amp;fm=253&amp;app=138&amp;f=JPEG?w=800&amp;h=800" alt="Logo"><span class="site-name">栗子西柚wa</span></a><a class="nav-page-title" href="/"><span class="site-name">markdown使用</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时光档案</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">markdown使用</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-10-28T12:23:26.000Z" title="发表于 2025-10-28 20:23:26">2025-10-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-10-28T14:19:28.706Z" title="更新于 2025-10-28 22:19:28">2025-10-28</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="markdown的使用"><a href="#markdown的使用" class="headerlink" title="markdown的使用"></a>markdown的使用</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>ok啊也是开始正式开始写我的第一篇blog了。有一说一搭一个hexo博客还真是不容易，哪哪都有可能报错，投到github上再薅下来更是困难重重。</p>
+<p>框架是搭好了，但是问题来了，<del>markdown语法都不会我写鸡毛啊?</del></p>
+<p>我不会写markdown啊。</p>
+<p>所以就屁颠屁颠来学呗。</p>
+<p>然后我就突发奇想</p>
+<p>为什么不在学markdown的时候就跟着写教程呢？</p>
+<p>于是就开始写了。</p>
+<p>ps:只学了基于Typora的markdown的书写O.O</p>
+<p>那么正片开始。</p>
+<h2 id="一-标题"><a href="#一-标题" class="headerlink" title="一.标题"></a>一.标题</h2><blockquote>
+<h3 id="语法：（快捷键：ctrl-数字）"><a href="#语法：（快捷键：ctrl-数字）" class="headerlink" title="语法：（快捷键：ctrl+数字）"></a>语法：（快捷键：ctrl+数字）</h3><p>#（一级标题）      <strong>注意# 后要跟空格！实际在写不用加（），这里只是方便展示语</strong>  快捷键（Ctrl+1）</p>
+<p>##（二级标题）    快捷键（Ctrl+2）</p>
+<p>快捷键（Ctrl+   +/- ）+是减少标题级数，-是增加标题级数。级数越大文字越小。</p>
+</blockquote>
+<h2 id="二-段落"><a href="#二-段落" class="headerlink" title="二.段落"></a>二.段落</h2><h3 id="1、换行"><a href="#1、换行" class="headerlink" title="1、换行"></a>1、换行</h3><blockquote>
+<h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><ol>
+<li>按一下enter是宽换行</li>
+<li>按shift+enter是窄换行</li>
+<li>在有序号的情况下窄换行可以续上在上一个序号里，只有宽换行能加上序号</li>
+<li>按shift加tab可以往左一级缩进</li>
+</ol>
+</blockquote>
+<blockquote>
+<h4 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h4><p>这是第一行</p>
+<p>这是第二行</p>
+<p>这是shift第一行<br>这是shift第二行</p>
+</blockquote>
+<h3 id="2、分割线"><a href="#2、分割线" class="headerlink" title="2、分割线"></a>2、分割线</h3><blockquote>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p>空白输入—</p>
+</blockquote>
+<blockquote>
+<h4 id="效果-1"><a href="#效果-1" class="headerlink" title="效果"></a>效果</h4><hr>
+</blockquote>
+<h2 id="三-给字体加效果"><a href="#三-给字体加效果" class="headerlink" title="三.给字体加效果"></a>三.给字体加效果</h2><h3 id="1、字体"><a href="#1、字体" class="headerlink" title="1、字体"></a>1、字体</h3><blockquote>
+<h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><ul>
+<li><p>粗体：** 文字 ** （==<strong>为了演示以下都加了空格，实际不用加！！！</strong>==）</p>
+</li>
+<li><p>删除线：~~ 文字 ~~</p>
+</li>
+<li><p>下划线: <u> fjskf </u>   (==<strong>建议使用Ctrl+u，可以一开始就按</strong>==)</p>
+</li>
+<li><p>斜体：* 文字 * </p>
+</li>
+<li><p>高亮：== 文字 ==   （==<strong>建议要打高亮的先打好 == ，不然后续再回来打很麻烦</strong>==）</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<h4 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h4><p><strong>这是粗体</strong></p>
+<p><del>这是删除线</del></p>
+<p><u>这是下划线</u></p>
+<p><em>这是斜体</em></p>
+<p>==这是高亮==</p>
+</blockquote>
+<p>==<strong>注意：<u>字体效果内一有空格就会失效！还有样式可以多重叠加，</u><u>用快捷键可以更方便加效果</u></strong>==</p>
+<blockquote>
+<h4 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h4><ul>
+<li>加粗：Ctrl+B</li>
+<li>删除线：shift+alt+5</li>
+<li>下划线：Ctrl+u</li>
+<li>斜体：Ctrl+l</li>
+</ul>
+</blockquote>
+<p>==<strong>注意</strong>，<strong>包含****<em>的式子要使用效果需要使用转义字符 \</em></strong>==</p>
+<h3 id="2-上下标"><a href="#2-上下标" class="headerlink" title="2.上下标"></a>2.上下标</h3><h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x^2^</span><br><span class="line">H~2~O</span><br></pre></td></tr></table></figure>
+
+<h4 id="效果-2"><a href="#效果-2" class="headerlink" title="效果"></a>效果</h4><p>x^2^</p>
+<p>H<del>2</del>O</p>
+<h2 id="四、列表"><a href="#四、列表" class="headerlink" title="四、列表"></a>四、列表</h2><h3 id="1、无序"><a href="#1、无序" class="headerlink" title="1、无序"></a>1、无序</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*/+/- + 空格</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h4 id="效果-3"><a href="#效果-3" class="headerlink" title="效果"></a>效果</h4><p>1.同级   ==（<strong>按回车自动续级</strong>）==</p>
+<ul>
+<li>apple</li>
+<li>banana</li>
+<li>orange</li>
+</ul>
+<p><strong>==按两下回车可退出续列表==</strong></p>
+<p>2.子集（）</p>
+<ul>
+<li>一级<ul>
+<li>二级（==<strong>按tab可以升级</strong>==）<ul>
+<li>三级</li>
+</ul>
+</li>
+<li>二级（==<strong>按shift+[可降级</strong>==）<ul>
+<li>三级（==<strong>按shift+]也可以升级</strong>==）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>==<strong>反复按enter可以退出续级</strong>==</p>
+<p><strong>==或者按快捷键Ctrl+shift+]也可以快速退出续级==</strong></p>
+</blockquote>
+<h3 id="2、有序"><a href="#2、有序" class="headerlink" title="2、有序"></a>2、有序</h3><h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数字+.+空格</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h4 id="效果-（按回车自动续级）"><a href="#效果-（按回车自动续级）" class="headerlink" title="效果 （按回车自动续级）"></a>效果 （按回车自动续级）</h4><ol>
+<li>第一</li>
+<li>第二<ol>
+<li>按==<strong>tab</strong>==键可升级<ol>
+<li>同理</li>
+</ol>
+</li>
+<li>按==<strong>ctrl+[</strong>==降级<ol>
+<li>按==<strong>ctrl+]</strong>==升级</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>第三<ul>
+<li><strong>==可以跟无序==</strong><br>==<u><strong>shift+enter可以接上一个序，而不续杯</strong></u>==</li>
+<li>上一个无序就续无序（有序续有序）</li>
+</ul>
+</li>
+</ol>
+<p><strong>按两下回车可退出续级，或者直接按下方向键</strong></p>
+</blockquote>
+<h3 id="3、任务框"><a href="#3、任务框" class="headerlink" title="3、任务框"></a>3、任务框</h3><h4 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">* [ ] 吃早餐   </span><br><span class="line">* [x] 背单词   //中间写x代表勾上了</span><br></pre></td></tr></table></figure>
+
+<p>*加空格是为了进入无序，然后是[ ] ,[]中间要空格，右括号后也要加空格 </p>
+<blockquote>
+<h4 id="效果-鼠标可以自己勾选"><a href="#效果-鼠标可以自己勾选" class="headerlink" title="效果  (==鼠标可以自己勾选==)"></a>效果  (==鼠标可以自己勾选==)</h4><ul>
+<li><p><input disabled="" type="checkbox">  吃早餐</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox">  背单词</p>
+</li>
+</ul>
+</blockquote>
+<p>==<strong>按ctrl+[可回退 缩进！！！！！</strong>==</p>
+<h2 id="五、区块"><a href="#五、区块" class="headerlink" title="五、区块"></a>五、区块</h2><h3 id="代码-gt"><a href="#代码-gt" class="headerlink" title="代码&gt;"></a>代码&gt;</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;+enter</span><br></pre></td></tr></table></figure>
+
+<h3 id="效果-4"><a href="#效果-4" class="headerlink" title="效果"></a>效果</h3><blockquote>
+<p>这是最外侧</p>
+<blockquote>
+<p>这是内侧</p>
+<blockquote>
+<p>这是最内侧</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p><strong>连续按enter可以从内向外直到退出</strong></p>
+<h2 id="六、代码"><a href="#六、代码" class="headerlink" title="六、代码"></a>六、代码</h2><h3 id="1、行内代码"><a href="#1、行内代码" class="headerlink" title="1、行内代码"></a>1、行内代码</h3><blockquote>
+<p>代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;`int a=0;`</span><br></pre></td></tr></table></figure>
+
+<p>一个`然后最后跟上一个`   (我是通过打\`转义字符打出来的，实际打`会直接变代码块)</p>
+</blockquote>
+<p><strong>==快捷键：ctrl+shift+k(再次按可取消)==</strong></p>
+<hr>
+<p>ok就先学到这里吧，后续学完了再写o.O</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://lazysilver.github.io">栗子西柚wa</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://lazysilver.github.io/2025/10/28/markdown%E4%BD%BF%E7%94%A8/">https://lazysilver.github.io/2025/10/28/markdown%E4%BD%BF%E7%94%A8/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://lazysilver.github.io" target="_blank">栗子西柚wa</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a></div><div class="post-share"><div class="social-share" data-image="/img/(450).png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/10/28/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" title="问题汇总"><img class="cover" src="/img/(448).png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">问题汇总</div></div><div class="info-2"><div class="info-item-1"> hexo new “文件名”后，tags： 后面一定要==跟一个空格==，不然会报错（基本所有都要跟空格）  我的markdown的高亮是====，但是hexo好像显示不了高亮解决办法：（hexo自己不带高亮的渲染器，需要插件）  ==卸载可能冲突的插件==npm uninstall markdown-it-emphasis-alt --save  ==安装markdown-it-mark插件==npm install hexo-renderer-markdown-it markdown-it-mark --save  ==在hexo根目录的_config.yml最后加上以下代码== 1234567891011markdown:  render:    html: true    xhtmlOut: false    breaks: true    linkify: true    typographer: true    quotes: &#x27;“”‘’&#x27;  plugins:    - name: markdown-it-mark  # 启用高亮插件      ...</div></div></div></a><a class="pagination-related" href="/2025/10/28/hello-world/" title="Hello World"><img class="cover" src="/img/(446).png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Hello World</div></div><div class="info-2"><div class="info-item-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Generating Deploy to remote sites1$ hexo deploy  More info: Deployment </div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://img0.baidu.com/it/u=865383481,2785686272&amp;fm=253&amp;app=138&amp;f=JPEG?w=800&amp;h=800" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">栗子西柚wa</div><div class="author-info-description">欢迎来到栗子西柚wa的个人博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/LazySilver" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="mailto:508513291@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #000000;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#markdown%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">markdown的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E6%A0%87%E9%A2%98"><span class="toc-number">1.2.</span> <span class="toc-text">一.标题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%EF%BC%9A%EF%BC%88%E5%BF%AB%E6%8D%B7%E9%94%AE%EF%BC%9Actrl-%E6%95%B0%E5%AD%97%EF%BC%89"><span class="toc-number">1.2.1.</span> <span class="toc-text">语法：（快捷键：ctrl+数字）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E6%AE%B5%E8%90%BD"><span class="toc-number">1.3.</span> <span class="toc-text">二.段落</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E6%8D%A2%E8%A1%8C"><span class="toc-number">1.3.1.</span> <span class="toc-text">1、换行</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">效果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E5%88%86%E5%89%B2%E7%BA%BF"><span class="toc-number">1.3.2.</span> <span class="toc-text">2、分割线</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-1"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">效果</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E7%BB%99%E5%AD%97%E4%BD%93%E5%8A%A0%E6%95%88%E6%9E%9C"><span class="toc-number">1.4.</span> <span class="toc-text">三.给字体加效果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E5%AD%97%E4%BD%93"><span class="toc-number">1.4.1.</span> <span class="toc-text">1、字体</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95-1"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BC%94%E7%A4%BA"><span class="toc-number">1.4.1.2.</span> <span class="toc-text">演示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">1.4.1.3.</span> <span class="toc-text">快捷键</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%8A%E4%B8%8B%E6%A0%87"><span class="toc-number">1.4.2.</span> <span class="toc-text">2.上下标</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-2"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">效果</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%88%97%E8%A1%A8"><span class="toc-number">1.5.</span> <span class="toc-text">四、列表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E6%97%A0%E5%BA%8F"><span class="toc-number">1.5.1.</span> <span class="toc-text">1、无序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-3"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">效果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E6%9C%89%E5%BA%8F"><span class="toc-number">1.5.2.</span> <span class="toc-text">2、有序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-%EF%BC%88%E6%8C%89%E5%9B%9E%E8%BD%A6%E8%87%AA%E5%8A%A8%E7%BB%AD%E7%BA%A7%EF%BC%89"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">效果 （按回车自动续级）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E4%BB%BB%E5%8A%A1%E6%A1%86"><span class="toc-number">1.5.3.</span> <span class="toc-text">3、任务框</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-2"><span class="toc-number">1.5.3.1.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-%E9%BC%A0%E6%A0%87%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%B7%B1%E5%8B%BE%E9%80%89"><span class="toc-number">1.5.3.2.</span> <span class="toc-text">效果  (&#x3D;&#x3D;鼠标可以自己勾选&#x3D;&#x3D;)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%8C%BA%E5%9D%97"><span class="toc-number">1.6.</span> <span class="toc-text">五、区块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-gt"><span class="toc-number">1.6.1.</span> <span class="toc-text">代码&gt;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-4"><span class="toc-number">1.6.2.</span> <span class="toc-text">效果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E4%BB%A3%E7%A0%81"><span class="toc-number">1.7.</span> <span class="toc-text">六、代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E8%A1%8C%E5%86%85%E4%BB%A3%E7%A0%81"><span class="toc-number">1.7.1.</span> <span class="toc-text">1、行内代码</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/10/28/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" title="问题汇总"><img src="/img/(448).png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="问题汇总"/></a><div class="content"><a class="title" href="/2025/10/28/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" title="问题汇总">问题汇总</a><time datetime="2025-10-28T14:23:56.000Z" title="发表于 2025-10-28 22:23:56">2025-10-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/28/markdown%E4%BD%BF%E7%94%A8/" title="markdown使用"><img src="/img/(450).png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="markdown使用"/></a><div class="content"><a class="title" href="/2025/10/28/markdown%E4%BD%BF%E7%94%A8/" title="markdown使用">markdown使用</a><time datetime="2025-10-28T12:23:26.000Z" title="发表于 2025-10-28 20:23:26">2025-10-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/28/hello-world/" title="Hello World"><img src="/img/(446).png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2025/10/28/hello-world/" title="Hello World">Hello World</a><time datetime="2025-10-28T06:27:49.064Z" title="发表于 2025-10-28 14:27:49">2025-10-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/" title="我的第二篇博客"><img src="/img/(444).png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="我的第二篇博客"/></a><div class="content"><a class="title" href="/2025/10/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/" title="我的第二篇博客">我的第二篇博客</a><time datetime="2025-10-28T04:13:26.000Z" title="发表于 2025-10-28 12:13:26">2025-10-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/27/%E6%A0%97%E5%AD%90%E8%A5%BF%E6%9F%9Awa%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" title="栗子西柚wa的个人博客搭建教程"><img src="/img/(449).png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="栗子西柚wa的个人博客搭建教程"/></a><div class="content"><a class="title" href="/2025/10/27/%E6%A0%97%E5%AD%90%E8%A5%BF%E6%9F%9Awa%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" title="栗子西柚wa的个人博客搭建教程">栗子西柚wa的个人博客搭建教程</a><time datetime="2025-10-27T11:08:15.000Z" title="发表于 2025-10-27 19:08:15">2025-10-27</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/(450).png);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By 栗子西柚wa</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 5.4.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.1</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.1"></script><script src="/js/main.js?v=5.5.1"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
