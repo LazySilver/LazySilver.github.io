@@ -1,0 +1,250 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>线段树 | 栗子西柚wa</title><meta name="author" content="栗子西柚wa"><meta name="copyright" content="栗子西柚wa"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="线段树 概念  一种用于搜索的二叉树,高级数据结构   功能   区间修改（区间求和，求最值） 区间查询 单点查询修改    特征    区间分治  [1,3]–&gt;[1,2],[3,3]–&gt;[1,1],[2,2],[3,3]     每个节点度&lt;&#x3D;2,且除了最后一层，其他层都是满的，因此可以使用数组存树，节点k，左孩子2k，右孩子2k+1。（从1开始存树）   l&#x3D;&#x3D;r，说明是叶">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线段树">
+<meta property="og:url" content="https://lazysilver.github.io/2025/11/01/%E7%BA%BF%E6%AE%B5%E6%A0%91/index.html">
+<meta property="og:site_name" content="栗子西柚wa">
+<meta property="og:description" content="线段树 概念  一种用于搜索的二叉树,高级数据结构   功能   区间修改（区间求和，求最值） 区间查询 单点查询修改    特征    区间分治  [1,3]–&gt;[1,2],[3,3]–&gt;[1,1],[2,2],[3,3]     每个节点度&lt;&#x3D;2,且除了最后一层，其他层都是满的，因此可以使用数组存树，节点k，左孩子2k，右孩子2k+1。（从1开始存树）   l&#x3D;&#x3D;r，说明是叶">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lazysilver.github.io/img/(448).png">
+<meta property="article:published_time" content="2025-11-01T13:26:02.000Z">
+<meta property="article:modified_time" content="2025-11-01T14:51:03.007Z">
+<meta property="article:author" content="栗子西柚wa">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lazysilver.github.io/img/(448).png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "线段树",
+  "url": "https://lazysilver.github.io/2025/11/01/%E7%BA%BF%E6%AE%B5%E6%A0%91/",
+  "image": "https://lazysilver.github.io/img/(448).png",
+  "datePublished": "2025-11-01T13:26:02.000Z",
+  "dateModified": "2025-11-01T14:51:03.007Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "栗子西柚wa",
+      "url": "https://lazysilver.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lazysilver.github.io/2025/11/01/%E7%BA%BF%E6%AE%B5%E6%A0%91/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '线段树',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="web_bg" style="background-image: url(/img/back.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://img0.baidu.com/it/u=865383481,2785686272&amp;fm=253&amp;app=138&amp;f=JPEG?w=800&amp;h=800" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时光档案</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/(448).png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://img0.baidu.com/it/u=865383481,2785686272&amp;fm=253&amp;app=138&amp;f=JPEG?w=800&amp;h=800" alt="Logo"><span class="site-name">栗子西柚wa</span></a><a class="nav-page-title" href="/"><span class="site-name">线段树</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时光档案</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">线段树</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-11-01T13:26:02.000Z" title="发表于 2025-11-01 21:26:02">2025-11-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-01T14:51:03.007Z" title="更新于 2025-11-01 22:51:03">2025-11-01</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1>线段树</h1>
+<h2 id="概念">概念</h2>
+<blockquote>
+<p>一种用于<strong>搜索</strong>的二叉树,<strong>高级数据结构</strong></p>
+</blockquote>
+<hr>
+<h2 id="功能">功能</h2>
+<blockquote>
+<ol>
+<li><strong>区间修改（区间求和，求最值）</strong></li>
+<li><strong>区间查询</strong></li>
+<li><strong>单点查询修改</strong></li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="特征">特征</h2>
+<blockquote>
+<ol>
+<li>
+<p>区间<strong>分治</strong></p>
+<blockquote>
+<p>[1,3]–&gt;[1,2],[3,3]–&gt;[1,1],[2,2],[3,3]</p>
+<img src="/2025/11/01/线段树/47CD2CC7D1D5E0DDC169A782465E9A51.png"  alt="47CD2CC7D1D5E0DDC169A782465E9A51" style="zoom:25%;" />
+</blockquote>
+</li>
+<li>
+<p>每个节点度&lt;=2,且除了最后一层，其他层都是<strong>满的</strong>，因此可以使用数组存树，节点<strong>k</strong>，左孩子<strong>2k</strong>，右孩子<strong>2k+1</strong>。（从<strong>1</strong>开始存树）</p>
+</li>
+<li>
+<p>l==r，说明是叶子</p>
+</li>
+<li>
+<p>l&lt;r,说明有两个子节点，<strong>左儿子</strong> <strong><code>[l,m]</code></strong> ,<strong>右孩子</strong> <strong><code>[m+1,r]</code></strong>,<strong><code>m=(l+r)/2</code></strong></p>
+</li>
+<li>
+<p>操作时间复杂度：<strong>O(logn)</strong></p>
+</li>
+<li>
+<p><mark><strong>核心</strong></mark>：<mark>大区间</mark>的解可以由<mark>小区间</mark>的解合并而来</p>
+</li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="建树">建树</h2>
+<blockquote>
+<p>建树时间复杂度：<strong>O(n)</strong>   <u><em>了解即可，知道就行，不要求</em></u></p>
+<p>一个节点存：</p>
+<blockquote>
+<ul>
+<li>左右边界</li>
+<li>区间要维护的值</li>
+</ul>
+</blockquote>
+<p>tree[]数组大小：<mark>4*n</mark>（<strong>可能存在空间浪费</strong>）</p>
+</blockquote>
+<h3 id="思路：递归建树">思路：<strong>递归建树</strong></h3>
+<p>以区间和为例</p>
+<ol>
+<li>先用一个数组存每个线段的值</li>
+<li>建树，区间从（1，max），递归开始</li>
+<li>当区间左右相等时，查询数组的值，写到树上去，然后递归归上去，区间和就是把递归的数值相加，（极值就是取区间极值）。</li>
+</ol>
+<hr>
+<h2 id="单点修改">单点修改</h2>
+<h3 id="思路">思路</h3>
+<p>递归找到要修改的节点，<s>然后修改，将修改完的值归上去更新</s>,直接在递归的时候根据边界就直接修改就好了，（<mark>原方案是归回去再修改，我直接在递的过程就改</mark>）反正只有一个点，不可能存在两边都要遍历的情况，简单点递归一层直接加就行，递归到叶子就停手！！！（我自己的思路,相当于<mark>二分</mark>去查找）</p>
+<h3 id="代码">代码</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">updata</span><span class="params">(<span class="type">int</span> p,<span class="type">int</span> o,<span class="type">int</span> k)</span><span class="comment">//要修改的线段p，当前遍历的节点o，要增加的值k</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(tree[o].l==tree[o].r)</span><br><span class="line">    &#123;</span><br><span class="line">        tree[o].sum+=k;</span><br><span class="line">        a[p]+=k;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        tree[o].sum+=k;<span class="comment">//直接加</span></span><br><span class="line">        <span class="type">int</span> mid=(tree[o].l+tree[o].r)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(mid&gt;=p)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">update</span>(p,o*<span class="number">2</span>,k);<span class="comment">//遍历左子树</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">update</span>(p,o*<span class="number">2</span><span class="number">+1</span>,k);<span class="comment">//遍历右子树</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="区间修改">区间修改</h2>
+<h3 id="思路-2">思路</h3>
+<p><mark>核心：使用<code>lazy-tag</code>懒标记</mark></p>
+<p>节点添加一条属性：<code>tag</code>,用于记录当前节点是否有需要下放的数值，若不为0，则在<strong>遍历到此节点的时候，左右孩子都<mark>下放tag</mark>，本节点tag<mark>清零</mark></strong></p>
+<p>查询到该节点的时候，若tag不为0，则使用<code>down(int i)</code>函数</p>
+<h3 id="代码-2">代码</h3>
+<h4 id="建树-2">建树</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a[maxn];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> l,r,sum,tag;</span><br><span class="line">&#125;tree[maxn*<span class="number">4</span>];<span class="comment">//切记是maxn*4</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">build</span><span class="params">(<span class="type">int</span> i,<span class="type">int</span> l,<span class="type">int</span> r)</span><span class="comment">//i是数组节点，l是数组的左边界，r是数组右边界</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//第一步build(1,min,max)</span></span><br><span class="line">    tree[i].l=l;</span><br><span class="line">    tree[i].r=r;</span><br><span class="line">    tree[i].tag=<span class="number">0</span>; <span class="comment">// 初始化tag=0</span></span><br><span class="line">    <span class="keyword">if</span>(l==r)<span class="comment">//已经是叶子 ，则直接取数组赋值</span></span><br><span class="line">    &#123;</span><br><span class="line">        tree[i].sum=a[l];<span class="comment">//注意是a[边界]，不是a[i]!!!!!!!!!</span></span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> m=(l+r)&gt;&gt;<span class="number">1</span>;  <span class="comment">// &gt;&gt;1是右移1位，也就是除2</span></span><br><span class="line">    <span class="built_in">build</span>(i&lt;&lt;<span class="number">1</span>,l,m);</span><br><span class="line">    <span class="built_in">build</span>(i&lt;&lt;<span class="number">1</span><span class="number">+1</span>,m<span class="number">+1</span>,r);</span><br><span class="line">    tree[i].sum=tree[i&lt;&lt;<span class="number">1</span>].sum+tree[i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>].sum;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="区间查询">区间查询</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//下放tag</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">down</span><span class="params">(<span class="type">int</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    tree[i*<span class="number">2</span>].tag+=tree[i].tag;</span><br><span class="line">    <span class="comment">//记得更新子树的sum值，也是要考虑区间数量</span></span><br><span class="line">    tree[i*<span class="number">2</span>].sum+=(tree[i*<span class="number">2</span>].r-tree[i*<span class="number">2</span>].l<span class="number">+1</span>)*tree[i*<span class="number">2</span>].tag;</span><br><span class="line">    </span><br><span class="line">    tree[i*<span class="number">2</span><span class="number">+1</span>].tag+=tree[i].tag;</span><br><span class="line">    <span class="comment">//记得更新子树的sum值，也是要考虑区间数量</span></span><br><span class="line">    tree[i*<span class="number">2</span><span class="number">+1</span>].sum+=(tree[i*<span class="number">2</span><span class="number">+1</span>].r-tree[i*<span class="number">2</span><span class="number">+1</span>].l<span class="number">+1</span>)*tree[i*<span class="number">2</span><span class="number">+1</span>].tag;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//最重要的一步！！！！把当前节点的tag归零！！！！</span></span><br><span class="line">    <span class="comment">//最重要的一步！！！！把当前节点的tag归零！！！！</span></span><br><span class="line">    <span class="comment">//最重要的一步！！！！把当前节点的tag归零！！！！</span></span><br><span class="line">   	tree[i].tag=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">upgrade</span><span class="params">(<span class="type">int</span> i,<span class="type">int</span> x,<span class="type">int</span> y,<span class="type">int</span> k)</span><span class="comment">//i是当前查到节点编号，x是要修改值的左边界，y是要修改值的右边界，k是要增加的值</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> l=tree[i].l;</span><br><span class="line">    <span class="type">int</span> r=tree[i].r;</span><br><span class="line">    <span class="keyword">if</span>(l&gt;y||x&lt;r)<span class="comment">//当前节点完全在要修改的节点之外</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span>；</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(l&gt;=x&amp;&amp;r&lt;=y) <span class="comment">//当前节点完全在要修改的节点范围内，直接修改当前节点的sum，记得要按区间数量加，然后tag更新，直接回上去，不用再往下走了，等到后续走到该节点再更新下面的节点也不迟</span></span><br><span class="line">    &#123;</span><br><span class="line">        tree[i].tag+=k;</span><br><span class="line">        tree[i].sum+=(r-l<span class="number">+1</span>)*k;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//走到这里，说明该节点的左边界到右边界只有部分跟要修改的节点重合，所以先下放tag，然后查询左右子树</span></span><br><span class="line">    <span class="keyword">if</span>(tree[i].tag&gt;<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">down</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//去左右子树中找</span></span><br><span class="line">    <span class="built_in">upgrade</span>(i*<span class="number">2</span>,x,y,k);</span><br><span class="line">    <span class="built_in">upgrade</span>(i*<span class="number">2</span><span class="number">+1</span>,x,y,k);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//重要的一步！！！更新当前节点的sum值！！！！！</span></span><br><span class="line">    <span class="comment">//重要的一步！！！更新当前节点的sum值！！！！！</span></span><br><span class="line">    <span class="comment">//重要的一步！！！更新当前节点的sum值！！！！！</span></span><br><span class="line">    tree[i].sum=tree[i*<span class="number">2</span>].sum+tree[i*<span class="number">2</span><span class="number">+1</span>].sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="区间查询的思考">区间查询的思考</h4>
+<p>疑问在于修改完tag后，是否会影响上面的节点。不会的，因为上面的节点有48行会手动重算sum，就算下面的区间还没有更新sum，有tag的那个节点的sum是更新了的，不会影响到上面的节点计算sum值。</p>
+<h4 id="区间查询-2">区间查询</h4>
+<p>查询和修改差不多，只是除了下放tag，不需要更新当前节点的值，因为不涉及修改，下放的tag造成的修改，详见<a href="####%E5%8C%BA%E9%97%B4%E6%9F%A5%E8%AF%A2%E7%9A%84%E6%80%9D%E8%80%83">区间查询的思考</a>,上方的区间已经改完了，在查询阶段不需要更新这一步</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">search</span><span class="params">(<span class="type">int</span> i,<span class="type">int</span> x,<span class="type">int</span> y)</span><span class="comment">//i是当前查到的节点，x是要查询的左边界，y是要查询的右边界。</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	 <span class="type">int</span> l=tree[i].l;</span><br><span class="line">    <span class="type">int</span> r=tree[i].r;</span><br><span class="line">    <span class="keyword">if</span>(l&gt;y||x&lt;r)<span class="comment">//当前节点完全在要查询的节点之外</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>；</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(l&gt;=x&amp;&amp;r&lt;=y) <span class="comment">//当前节点完全在要修改的节点范围内</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> tree[i].sum;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//走到这里，说明该节点的左边界到右边界只有部分跟要修改的节点重合，所以先下放tag，然后查询左右子树</span></span><br><span class="line">    <span class="keyword">if</span>(tree[i].tag&gt;<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">down</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">  	</span><br><span class="line">    <span class="comment">//去左右子树找，然后相加，区间不匹配就加0</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">search</span>(i*<span class="number">2</span>,x,y)+<span class="built_in">search</span>(i*<span class="number">2</span><span class="number">+1</span>,x,y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="最值">最值</h3>
+<p>那就不是加了，初始最值叶子节点都是线段自己的值，然后基本都是在更新那步修改一下就行了。</p>
+<h3 id="最后">最后</h3>
+<p>线段树容易爆mle，记得看大小。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://lazysilver.github.io">栗子西柚wa</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://lazysilver.github.io/2025/11/01/%E7%BA%BF%E6%AE%B5%E6%A0%91/">https://lazysilver.github.io/2025/11/01/%E7%BA%BF%E6%AE%B5%E6%A0%91/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://lazysilver.github.io" target="_blank">栗子西柚wa</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></div><div class="post-share"><div class="social-share" data-image="/img/(448).png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/10/30/1-1%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/" title="1.1计算机网络概述"><img class="cover" src="/img/(449).png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">1.1计算机网络概述</div></div><div class="info-2"><div class="info-item-1">计算机网络概述 总述  三大基础网络形态  电信网络：语音通信，电话，传真等实时通信。–&gt;电路交换技术 有线电视网络：单向广播式音视频内容分发。  --&gt;同轴电缆，光纤 计算机网络：端到端的数据文件传输  --&gt;  分组交换技术    网络物理构成：节点（Node）和链路（Link）组成。 Node：计算机（笔记本，服务器），网络互联设备（集线器，路由器），有网络功能的设备（打印机，网络摄像头等）。 Link：有线/无线   互联网(Internet)的构成：网络和网路之间通过路由器互联，组成更大的网络。  网络是把计算机连在一起，互联网就是把网络通过路由器连在一起。  internet采用TCP/IP协议族作为通信规则。 分布式系统：多个独立计算机节点通过网络互联组成的软件系统。节点协同工作，对外表现为一个统一的整体。 ps：平时不区分互联网和因特网  互联网的核心特性   连通性：无论何地，双方都可通过网络进行通信交互。 共享性：信息资源可以在全球范围内被多个用户访问和使用。   计网的组成    组成方式  硬件 软件 协议（计网的核心，传输规范）    ...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/10/29/KMP%E7%AE%97%E6%B3%95/" title="KMP算法"><img class="cover" src="/img/(450).png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-10-29</div><div class="info-item-2">KMP算法</div></div><div class="info-2"><div class="info-item-1">KMP算法 用途  解决字符串匹配问题 主串p，模式串s。问：s是否是p的子串？  算法思路  核心：即使主串当前位置**i失配，就算回退指针i，主串匹配指针i都会再次走到当前位置，所以直接不回溯主串指针，去判断当前位置失配时，对应的模式串要回溯到多少，假设模式串要此时匹配的位置是j**，则根据模式串的nex[j]的数值a，让主串的第[i]位与模式串的第[a]位去匹配 ps：[]里都是从0开始计数 时间复杂度：O(n+m)  nex数组  注意：next是关键字，不能用来声明数组！ nex[i]=x; []范围0~length 概念：模式串**前i位（s[0]-s[i-1]）**最长相同前后缀的长度  举例：aababa nex[0]=-1; nex[1]=0; nex[2]=1;     s[0]=“a”,  s[1]=“a” --&gt;1个  nex[3]=0; 前缀：a（0~0），aa（0~1） 后缀：b（2~2）,   ab  (1~2) 没有相同，所以是0  ……  nex[1]=0;        第1为固定位0，因为前后缀的定义都是至少要2位，s[0]和s[1]才...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://img0.baidu.com/it/u=865383481,2785686272&amp;fm=253&amp;app=138&amp;f=JPEG?w=800&amp;h=800" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">栗子西柚wa</div><div class="author-info-description">欢迎来到栗子西柚wa的个人博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/LazySilver" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="mailto:508513291@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #000000;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">线段树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD"><span class="toc-number">1.2.</span> <span class="toc-text">功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E5%BE%81"><span class="toc-number">1.3.</span> <span class="toc-text">特征</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E6%A0%91"><span class="toc-number">1.4.</span> <span class="toc-text">建树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A%E9%80%92%E5%BD%92%E5%BB%BA%E6%A0%91"><span class="toc-number">1.4.1.</span> <span class="toc-text">思路：递归建树</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E7%82%B9%E4%BF%AE%E6%94%B9"><span class="toc-number">1.5.</span> <span class="toc-text">单点修改</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">1.5.1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">1.5.2.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BA%E9%97%B4%E4%BF%AE%E6%94%B9"><span class="toc-number">1.6.</span> <span class="toc-text">区间修改</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-2"><span class="toc-number">1.6.1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-2"><span class="toc-number">1.6.2.</span> <span class="toc-text">代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BB%BA%E6%A0%91-2"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">建树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%BA%E9%97%B4%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">区间查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%BA%E9%97%B4%E6%9F%A5%E8%AF%A2%E7%9A%84%E6%80%9D%E8%80%83"><span class="toc-number">1.6.2.3.</span> <span class="toc-text">区间查询的思考</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%BA%E9%97%B4%E6%9F%A5%E8%AF%A2-2"><span class="toc-number">1.6.2.4.</span> <span class="toc-text">区间查询</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%80%BC"><span class="toc-number">1.6.3.</span> <span class="toc-text">最值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-number">1.6.4.</span> <span class="toc-text">最后</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/11/01/%E7%BA%BF%E6%AE%B5%E6%A0%91/" title="线段树"><img src="/img/(448).png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="线段树"/></a><div class="content"><a class="title" href="/2025/11/01/%E7%BA%BF%E6%AE%B5%E6%A0%91/" title="线段树">线段树</a><time datetime="2025-11-01T13:26:02.000Z" title="发表于 2025-11-01 21:26:02">2025-11-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/30/1-1%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/" title="1.1计算机网络概述"><img src="/img/(449).png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="1.1计算机网络概述"/></a><div class="content"><a class="title" href="/2025/10/30/1-1%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/" title="1.1计算机网络概述">1.1计算机网络概述</a><time datetime="2025-10-30T14:51:49.000Z" title="发表于 2025-10-30 22:51:49">2025-10-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/29/KMP%E7%AE%97%E6%B3%95/" title="KMP算法"><img src="/img/(450).png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="KMP算法"/></a><div class="content"><a class="title" href="/2025/10/29/KMP%E7%AE%97%E6%B3%95/" title="KMP算法">KMP算法</a><time datetime="2025-10-29T12:40:02.000Z" title="发表于 2025-10-29 20:40:02">2025-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/28/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" title="问题汇总"><img src="/img/(443).png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="问题汇总"/></a><div class="content"><a class="title" href="/2025/10/28/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" title="问题汇总">问题汇总</a><time datetime="2025-10-28T14:23:56.000Z" title="发表于 2025-10-28 22:23:56">2025-10-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/28/markdown%E4%BD%BF%E7%94%A8/" title="markdown使用"><img src="/img/(444).png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="markdown使用"/></a><div class="content"><a class="title" href="/2025/10/28/markdown%E4%BD%BF%E7%94%A8/" title="markdown使用">markdown使用</a><time datetime="2025-10-28T12:23:26.000Z" title="发表于 2025-10-28 20:23:26">2025-10-28</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/(448).png);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By 栗子西柚wa</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 5.4.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.1</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.1"></script><script src="/js/main.js?v=5.5.1"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
